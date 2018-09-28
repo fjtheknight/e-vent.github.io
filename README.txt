@@ -9,3 +9,4 @@ TODO
 ##### Team #####
 
 - Daniel Tang
+- Firas Jribi
