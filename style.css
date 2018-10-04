@@ -1,12 +1,10 @@
 @charset "UTF-8";
-html*{
-font-size: 17px !important;
-font-family: Arial!important;
-margin:0;
-}
 body,html{
 height:100%;
 margin:0;
+margin:0;
+font-size: 17px !important;
+font-family: Arial;
 }
 .teststyle {
 background-color: powderblue;
@@ -14,12 +12,13 @@ color: red;
 display: none;
 }
 .topnav {
-background-color: #817AFF;
+background-color: #FAFAFA;
 overflow: hidden;
 margin:0;
+border: 1px solid #FAFAFA;
 }
 .topnav a {
-color: white;
+color: black;
 padding: 14px 16px;
 text-decoration: none;
 display:block;
@@ -36,7 +35,7 @@ font-family:inherite;
 background-color:inherit;
 padding:14px 16px;
 margin:0;
-color:white;
+color:black;
 font-size:17px;
 }
 .dropdown-content{
@@ -56,8 +55,7 @@ text-align: left;
 float:none;
 }
 .topnav a:hover, .dropdown:hover .dropbtn{
-background-color:#8185FF;
-color: black;
+color: #5271ff ;
 }
 .dropdown:hover .dropdown-content {
 display: block;
