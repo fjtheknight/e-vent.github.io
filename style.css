@@ -66,4 +66,13 @@ display: block;
 background-color: lightgray;
 color:;
 }
+.bag{
+background-image: url("file:///C:/Users/Jean/Documents/UOTTAWA/FIRST%20YEAR/FIRST%20SEMESTER/GitHub/e-vent.github.io/Images/celebration-crowd-daylight-1157557.jpg");
+background-size: cover;
+background-repeat:no-repeat;
+background-position:center;
+height:100vh;
+margin:0;
+}
+
 
