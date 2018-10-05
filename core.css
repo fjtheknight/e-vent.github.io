@@ -3,6 +3,9 @@
 font-family: "Noto Sans", sans-serif;
 font-size: 17px;
 text-decoration: none;
+box-sizing: border-box;
+justify-content: center;
+align-items: center;
 }
 body, html {
 height: 100%;
