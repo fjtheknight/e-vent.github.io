@@ -1,9 +1,13 @@
 @charset "UTF-8";
+nav, .navsize {
+height: 41px;
+}
 nav {
+position: fixed;
 list-style-type: none;
 background-color: white;
 border-bottom:1px solid lightgray;
-height: 51px;
+width: 100%;
 }
 nav>li {
 float: right;
