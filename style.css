@@ -1,6 +1,7 @@
 @charset "UTF-8";
 * {
 font-family: "Noto Sans";
+font-size: 17px;
 text-decoration: none;
 }
 body, html {
@@ -9,7 +10,7 @@ height: 100%;
 nav {
 list-style-type: none;
 overflow: hidden;
-background-color:#5271ff;
+background-color:#FAFAFA;
 }
 nav li {
 float: right;
@@ -45,4 +46,12 @@ text-align: left;
 }
 .dropdown-content a:hover {
 background-color: #f1f1f1
+}
+.bag{
+background-image: url("file:///C:/Users/Jean/Documents/UOTTAWA/FIRST%20YEAR/FIRST%20SEMESTER/GitHub/e-vent.github.io/Images/celebration-crowd-daylight-1157557.jpg");
+background-size: cover;
+background-repeat:no-repeat;
+background-position:center;
+height:100vh;
+margin:0;
 }
