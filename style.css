@@ -1,9 +1,9 @@
 @charset "UTF-8";
-.bag{
+#bag {
 background-image: url("img/Background.jpg");
 background-size: cover;
-background-repeat:no-repeat;
-background-position:center;
-height:100vh;
-margin:0;
+background-repeat: no-repeat;
+background-position: center;
+height: 100vh;
+margin: 0;
 }
