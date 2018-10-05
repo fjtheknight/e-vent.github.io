@@ -50,7 +50,7 @@ text-align: left;
 background-color: #f1f1f1
 }
 .bag{
-background-image: url(img/background.jpg);
+background-image: url("img/Background.jpg");
 background-size: cover;
 background-repeat:no-repeat;
 background-position:center;
