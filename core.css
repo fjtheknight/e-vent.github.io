@@ -1,0 +1,10 @@
+@charset "UTF-8";
+* {
+font-family: "Noto Sans", sans-serif;
+font-size: 17px;
+text-decoration: none;
+}
+body, html {
+height: 100%;
+margin: 0;
+}
