@@ -43,3 +43,9 @@ justify-content: left;
 nav>li>div>a:hover {
 background-color: #F1F1F1
 }
+#nav-j {
+background-color: purple;
+}
+#nav-j>span {
+color: white;
+}
