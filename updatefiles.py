@@ -1,18 +1,18 @@
 # Generate final HTML from content
 
-from os import listdir, remove
 from os.path import isfile
 import re
+from buildscript_common import DIVIDER_1, DIVIDER_2, realmain
 
 HEADER_PATH = "_common_header.html"
 FOOTER_PATH = "_common_footer.html"
 HEADER = ""
-DIVIDER_1 = "<!--buildscript header-content divider-->"
-DIVIDER_2 = "<!--buildscript content-footer divider-->"
 FOOTER = ""
 TITLES_PATH = "titles.txt"
 TITLES = {}
 TITLE_SEPARATOR = "§"
+SRC_SUFFIX = "_content.html"
+DST_SUFFIX = ".html"
 REGEX = re.compile(r"\$\$\$BUILDSCRIPT\$LINK\$([a-zA-Z0-9]+)\.html\$\$\$")
 
 def get_title(name):
@@ -23,7 +23,9 @@ def get_title(name):
     return TITLES["DEFAULT"]
 
 def stick_end(s):
-  return s[:-1] if len(s) != 0 and s[-1] == "\n" else s
+  while len(s) != 0 and s[-1] == "\n":
+    s = s[:-1]
+  return s
 
 def transform_content(content, name):
   sticky = stick_end(content)
@@ -36,31 +38,6 @@ def transform_content(content, name):
   if "$$$BUILDSCRIPT" in result:
     print("Warning: unhandled BUILDSCRIPT transform in: \"" + name + "\"!")
   return result
-
-def process(name):
-  print()
-  print("Considering \"" + name + "\"")
-  ctntname = name + "_content.html"
-  trgtname = name + ".html"
-  remove(trgtname)
-  if isfile(ctntname):
-    with open(ctntname, "r") as s:
-      content = s.read()
-    result = transform_content(content, name)
-    with open(trgtname, "w") as d:
-      d.write(result)
-    
-    print("Generated:", trgtname)
-  else:
-    print("Data file could not be found!:", ctntname)
-
-def check_loaded():
-  if not HEADER:
-    raise ValueError("Header is empty")
-  if not FOOTER:
-    raise ValueError("Footer is empty")
-  if "DEFAULT" not in TITLES:
-    raise ValueError("Default title is missing")
 
 def read_or_error(path, name):
   if not isfile(path):
@@ -83,21 +60,11 @@ def load_global():
     key = sections[0]
     value = sections[1]
     TITLES[key] = value
+  if "DEFAULT" not in TITLES:
+    raise ValueError("Default title is missing")
   return stick_end(header), stick_end(footer)
 
 HEADER, FOOTER = load_global()
-check_loaded()
-
-def run():
-  check_loaded()
-  for f in listdir():
-    if f.endswith(".html") and "_" not in f:
-      process(f[:-5])
 
 if __name__ == "__main__":
-  print("This will generate final HTML from content. This is a destructive operation!")
-  confirm = input("Are you sure you want to continue? [y/N]:")
-  if confirm == "y":
-    run()
-  else:
-    print("Not running")
+  realmain("This will generate final HTML from content", transform_content, SRC_SUFFIX, DST_SUFFIX)
