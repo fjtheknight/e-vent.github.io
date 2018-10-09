@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta name="google-signin-scope" content="profile email">
+                <meta name="google-signin-client_id" content="365679910149-388t7l2qc3kflnj52f01mk4bku5ffiis.apps.googleusercontent.com">
+                <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+                <title>
+                E-VENT webpage test
+                </title>
+        </head>
+
+        <body>
+        some text in the body
+        <div id="info"></div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+        <script>
+                function onSignIn(googleUser) {
+                        var profile = googleUser.getBasicProfile();
+                        document.getElementById('info').innerHTML = profile.getName() + "<br>" + "<a href='mailto:'" + profile.getEmail() + "</a>" + "<br>" + "<img src='" + profile.getImageUrl() + "'/>";
+        }
+        </script>
+        <a href="#" onclick = "signOut();">Sign out</a>
+        <script>
+                function signOut(){
+                        var auth2 = gapi.auth2.getAuthInstance();
+                        auth2.signOut().then(function() {
+                                document.getElementById('info').innerHTML='';
+                        });
+                }
+        </script>
+        </body>
+
+</html>
